@@ -1,0 +1,18 @@
+{{info.name}} has an id of {{info.id}} and acctid {{info.accountId}}
+{{info2.totalGames}} 
+
+{{# each info2.listofGames as |val key|}}
+<div>
+  
+  game number {{key}}: champion id:{{ val.champion }}
+  gameid:
+  {{ val.gameId}}
+</div>
+{{/each}}
+
+{{# each info3 as |val key|}}
+<div>
+    id:
+  {{val.id}}
+</div>
+{{/each}}

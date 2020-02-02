@@ -1,0 +1,44 @@
+<h1>First API Call: get Summoner information from SummonerName</h1>
+{{info.name}} has an id of {{info.id}} and acctid {{info.accountId}}
+
+<h1>Second API Call: retrieve list of games from summoner by AccountId</h1>
+{{# each info2.listofGames as |val key|}}
+<div>
+  game number {{key}}: champion id:{{ val.champion }} gameid: {{ val.gameId}}
+</div>
+{{/each}}
+
+<h1>API Call: retrieve a list of all matches by GameId (the ones that were identified on step 2)
+From that list, map the accountId to the given participantId from the list of participants. Once we have that participantId
+look at the "participants" -> map the participantId and retrieve all the statistics necessary.
+You wont see all the games, as the API has a limit of 20 requests per second. We have 2 initial queries to find necessary information
+and are only able to make a call to 17 additional matches in that one second that the server runs. 
+</h1>
+
+<h2>kills per last games</h2>
+{{#each kills}}
+<div>
+    Game:{{@key}}: kills:{{this.kills}}
+</div>
+{{/each}}
+
+<h2>wins on last games</h2>
+{{#each win}}
+<div>
+    Game:{{@key}}: win:{{this.win}}
+</div>
+{{/each}}
+
+<h2>deaths per last games</h2>
+{{#each deaths}}
+<div>
+    Game:{{@key}}: deaths:{{this.deaths}}
+</div>
+{{/each}}
+
+<h2>assists per last games</h2>
+{{#each assists}}
+<div>
+    Game:{{@key}}:assists:{{this.assists}}
+</div>
+{{/each}}
